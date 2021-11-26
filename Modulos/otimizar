@@ -1,9 +1,9 @@
 #!/bin/bash
 #===================================================
-#	SCRIPT: OTIMIZAR	SSHPLUS MANAGER
-#	DESENVOLVIDO POR:	CRAZY_VPN
-#	CONTATO TELEGRAM:	http://t.me/crazy_vpn
-#	CANAL TELEGRAM:	http://t.me/sshplus
+#	SCRIPT: OTIMIZAR	KMSLAB2.0 ADM
+#	DESENVOLVIDO POR:	PHREAKER56_ADM
+#	CONTATO TELEGRAM:	http://t.me/phreakr56
+#	CANAL TELEGRAM:	http://t.me/phreakr56
 #===================================================
 fun_bar() {
 	comando[0]="$1"
