@@ -82,7 +82,7 @@ fun_bar 'fun_atts'
 
 [[ ! -f "/tmp/att" ]] && {
 
-	echo -e "\n\033[1;31m ERRO AO CONECTAR AO SERVIDOR\n"
+	echo -e "\n\033[1;31m ERROR AL CONECTAR AL SERVIDOR\n"
 
 	echo -ne "\033[1;31m ENTER \033[1;33mpara retornar ao \033[1;32mMENU!\033[0m"; read
 
