@@ -62,7 +62,7 @@ fun_tst () {
 speedtest --share > speed
 }
 echo ""
-echo -e "   \033[1;32mTESTANDO A VELOCIDADE DO SERVIDOR !\033[0m"
+echo -e "   \033[1;32mESPERE ESTAMOS HACIENDO TEST DE VELOCIDAD A SU SERVIDOR !\033[0m"
 echo ""
 aguarde 'fun_tst'
 echo ""
