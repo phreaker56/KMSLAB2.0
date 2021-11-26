@@ -281,12 +281,12 @@ sizemax=$(echo ${#username})
 }
 echo -ne "\033[1;32mSenha:\033[1;37m ";read password
 [[ -z $password ]] && {
-	echo -e "\n${cor1}Senha vazia ou invalida!${scor}\n"
+	echo -e "\n${cor1}Passw vacio o invalido!${scor}\n"
 	exit 1
 }
 sizepass=$(echo ${#password})
-[[ $sizepass -lt 4 ]] && {
-	echo -e "\n${cor1}Senha curta!, use no mínimo 4 caracteres${scor}\n"
+[[ $sizepass -lt 2 ]] && {
+	echo -e "\n${cor1}Passw corto!, use no mínimo 2 caracteres${scor}\n"
 	exit 1
 }
 echo -ne "\033[1;32mDias para expirar:\033[1;37m ";read dias
@@ -295,14 +295,14 @@ echo -ne "\033[1;32mDias para expirar:\033[1;37m ";read dias
 	exit 1
 }
 [[ ${dias} != ?(+|-)+([0-9]) ]] && {
-	echo -e "\n${cor1}Você digitou um número de dias inválido!${scor}\n"
+	echo -e "\n${cor1}Você digite un número de dias inválido!${scor}\n"
 	exit 1
 }
 [[ $dias -lt 1 ]] && {
-	echo -e "\n${cor1}O número deve ser maior que zero!${scor}\n"
+	echo -e "\n${cor1}O número deve ser mayor que zero!${scor}\n"
 	exit 1
 }
-echo -ne "\033[1;32mLimite de conexões:\033[1;37m ";read sshlimiter
+echo -ne "\033[1;32mLimite de conexiones:\033[1;37m ";read sshlimiter
 [[ -z $sshlimiter ]] && {
 	echo -e "\n${cor1}Você deixou o limite de conexões vazio!${scor}\n"
 	exit 1
