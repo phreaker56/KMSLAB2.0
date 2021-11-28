@@ -82,8 +82,8 @@ else
 			else
 				if (echo $inputdate | egrep [^a-zA-Z] &> /dev/null)
 				then
-					today="$(date -d today +"%Y%m%d -d "+$inputdate days")"
-					timemachine="$(date -d "$sysdate" +"%Y%m%d -d "+$inputdate days")"
+					today="$(date -d today +"%Y%m%d")"
+					timemachine="$(date -d "$sysdate" +"%Y%m%d")"
 					if [ $today -ge $timemachine ]
 					then
 						echo ""
