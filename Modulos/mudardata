@@ -66,10 +66,10 @@ else
 	    echo -ne "\033[1;32mActualizar fecha de expiracion para el usuario \033[1;33m$usuario: \033[1;37m"; read inputdate
 	    if [[ "$(echo -e "$inputdate" | grep -c "/")" = "0" ]]; then 
 	    	udata=$(date "+%d/%m/%Y" -d "+$inputdate days")
-	    	sysdate="$(echo "$udata" | awk -v FS=/ -v OFS=- '{print $3,$2,$0,}')"
+	    	sysdate="$(echo "$udata" | awk -v FS=/ -v OFS=- '{print $3,$2,$1,}')"
 	    else
 	    	udata=$(echo -e "$inputdate")
-	    	sysdate="$(echo "$inputdate" | awk -v FS=/ -v OFS=- '{print $3,$2,$0}')"
+	    	sysdate="$(echo "$inputdate" | awk -v FS=/ -v OFS=- '{print $3,$2,$1}')"
 	    fi
 		if (date "+%Y-%m-%d" -d "$sysdate" > /dev/null  2>&1)
 		then
