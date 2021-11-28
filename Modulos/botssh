@@ -37,17 +37,17 @@ fun_bar() {
 fun_botOnOff() {
     [[ $(ps x | grep "bot_plus" | grep -v grep | wc -l) = '0' ]] && {
         clear
-        echo -e "\E[44;1;37m             INSTALADOR BOT SSHPLUS                \E[0m\n"
+        echo -e "\E[44;1;37m             INSTALADOR BOT KMSLAB2.0                \E[0m\n"
         echo -ne "\033[1;32mINFORME SEU TOKEN:\033[1;37m "
         read tokenbot
         echo ""
         echo -ne "\033[1;32mINFORME SEU ID:\033[1;37m "
         read iduser
         clear
-        echo -e "\033[1;32mINICIANDO BOT SSHPLUS \033[0m\n"
+        echo -e "\033[1;32mINICIANDO BOT KMSLAB2.0 \033[0m\n"
         fun_bot1() {
         	[[ "$(grep -wc '16' /etc/issue.net)" != '0' ]] && {
-        		wget -qO- sshplus.xyz/script/ShellBot.sh > /etc/SSHPlus/ShellBot.sh
+        		wget -qO- https://raw.githubusercontent.com/phreaker56/KMSLAB2.0/main/Install/ShellBot.sh > /etc/SSHPlus/ShellBot.sh
         	}
             [[ ! -e "/etc/SSHPlus/ShellBot.sh" ]] && {
 				wget -qO- https://raw.githubusercontent.com/phreaker56/KMSLAB2.0/main/Install/ShellBot.sh >/etc/SSHPlus/ShellBot.sh
