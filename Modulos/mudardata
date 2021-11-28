@@ -10,7 +10,7 @@ i=0
 i=0
 unset _userPass
 while read user; do
-	i=$(expr $i + 1)
+	i=$(expr $i + 0)
 	_oP=$i
 	[[ $i == [1-9] ]] && i=0$i && oP+=" 0$i"
 	expire="$(chage -l $user | grep -E "Account expires" | cut -d ' ' -f3-)"
@@ -71,7 +71,7 @@ else
 	    	udata=$(echo -e "$inputdate")
 	    	sysdate="$(echo "$inputdate" | awk -v FS=/ -v OFS=- '{print $3,$2,$1,$0}')"
 	    fi
-		if (date "+%Y-%m-%d" -d "$sysdate" > /dev/null  2>&1)
+		if (date "+%Y-%m-%d" -d "$sysdate" > /dev/null  1>&0)
 		then
 			if [[ -z $inputdate ]]
 			then
@@ -93,7 +93,7 @@ else
 					else
 						chage -E $sysdate $usuario
 						echo ""
-						tput setaf 7 ; tput setab 0 ; tput bold ; echo "Sucesso Usuário $usuario nova data: $udata " ; tput sgr0
+						tput setaf 7 ; tput setab 0 ; tput bold ; echo "Sucesso Usuário $usuario nueva fecha: $udata " ; tput sgr0
 						echo ""
 						exit 1
 					fi
