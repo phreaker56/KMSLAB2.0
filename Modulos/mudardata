@@ -24,13 +24,13 @@ while read user; do
 		then
 			_user=$(echo -e "\033[1;31m[\033[1;36m$i\033[1;31m] \033[1;37m- \033[1;32m$user\033[1;37m")
 			datanormal="$(echo -e "\033[1;31m$(date -d"$expire" '+%d/%m/%Y')")"
-			expired=$(echo -e "\033[1;31mVENCEU\033[0m")
+			expired=$(echo -e "\033[1;31mEXPIRADO\033[0m")
 			printf '%-62s%-20s%s\n' "$_user" "$datanormal" "$expired"
 			echo "exp" > /tmp/exp
 		else
 			_user=$(echo -e "\033[1;31m[\033[1;36m$i\033[1;31m] \033[1;37m- \033[1;32m$user\033[1;37m")
 			datanormal="$(echo -e "\033[1;33m$(date -d"$expire" '+%d/%m/%Y')")"
-			ative=$(echo -e "\033[1;32mVALIDO\033[0m")
+			ative=$(echo -e "\033[1;32mACTIVO\033[0m")
 			printf '%-62s%-20s%s\n' "$_user" "$datanormal" "$ative"
 		fi
 	fi
@@ -76,7 +76,7 @@ else
 			if [[ -z $inputdate ]]
 			then
 				echo ""
-				tput setaf 7 ; tput setab 1 ; tput bold ;	echo "Datos ingresados incorrecto o inexistentes" ; echo "Digite una fecha válida en formato DIA/MÊS/ANO " ; echo "Por exemplo: 21/04/2021" ; tput sgr0 ; tput sgr0
+				tput setaf 7 ; tput setab 0 ; tput bold ;	echo "Datos ingresados incorrecto o inexistentes" ; echo "Digite una fecha válida en formato DIA/MÊS/ANO " ; echo "Por exemplo: 21/04/2021" ; tput sgr0 ; tput sgr0
 				echo ""
 				exit 1	
 			else
@@ -87,32 +87,32 @@ else
 					if [ $today -ge $timemachine ]
 					then
 						echo ""
-						tput setaf 7 ; tput setab 1 ; tput bold ;	echo "Você digitou uma data passada ou o dia atual!" ; echo "Digite uma data futura e válida no formato DIA/MÊS/ANO" ; echo "Por exemplo: 21/04/2018" ; tput sgr0
+						tput setaf 7 ; tput setab o ; tput bold ;	echo "Se ha ingresado expirada!" ; echo "Digite una fecha valida en formato DIA/MÊS/AÑO" ; echo "Por exemplo: 21/04/2021" ; tput sgr0
 						echo ""
 						exit 1
 					else
 						chage -E $sysdate $usuario
 						echo ""
-						tput setaf 7 ; tput setab 4 ; tput bold ; echo "Sucesso Usuário $usuario nova data: $udata " ; tput sgr0
+						tput setaf 7 ; tput setab 0 ; tput bold ; echo "Sucesso Usuário $usuario nova data: $udata " ; tput sgr0
 						echo ""
 						exit 1
 					fi
 				else
 					echo ""
-					tput setaf 7 ; tput setab 1 ; tput bold ;	echo "Você digitou uma data inválida ou inexistente!" ; echo "Digite uma data válida no formato DIA/MÊS/ANO" ; echo "Por exemplo: 21/04/2018" ; tput sgr0
+					tput setaf 7 ; tput setab 0 ; tput bold ;	echo "Usted digito una fecha inválida o inexistente!" ; echo "Digite una fecha válida en formato DIA/MÊS/AÑO" ; echo "Por exemplo: 21/04/2021" ; tput sgr0
 					echo ""
 					exit 1
 				fi
 			fi
 		else
 			echo ""
-			tput setaf 7 ; tput setab 1 ; tput bold ;	echo "Você digitou uma data inválida ou inexistente!" ; echo "Digite uma data válida no formato DIA/MÊS/ANO" ; echo "Por exemplo: 21/04/2018" ; tput sgr0
+			tput setaf 7 ; tput setab 0 ; tput bold ;	echo "Usted digito una fecha inválida o inexistente!" ; echo "Digite una fecha válida en formato DIA/MÊS/ANO" ; echo "Por exemplo: 21/04/2021" ; tput sgr0
 			echo ""
 			exit 1
 		fi
 	else
 		echo " "
-		tput setaf 7 ; tput setab 1 ; tput bold ;	echo "O usuário $usuario não existe!" ; tput sgr0
+		tput setaf 7 ; tput setab 0 ; tput bold ;	echo "O usuário $usuario no existe!" ; tput sgr0
 		echo " "
 		exit 1
 	fi
