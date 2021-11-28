@@ -71,7 +71,7 @@ else
 	    	udata=$(echo -e "$inputdate")
 	    	sysdate="$(echo "$inputdate" | awk -v FS=/ -v OFS=- '{print $3,$2,$1,$0}')"
 	    fi
-		if (date "+%Y-%m-%d" -d "$sysdate" > /dev/null  1>&0)
+		if (date "+%Y-%m-%d" -d "$sysdate" > /dev/null  2>&1)
 		then
 			if [[ -z $inputdate ]]
 			then
