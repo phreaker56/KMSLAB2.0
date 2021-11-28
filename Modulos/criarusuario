@@ -291,15 +291,15 @@ sizepass=$(echo ${#password})
 }
 echo -ne "\033[1;32mDias para expirar:\033[1;37m ";read dias
 [[ -z $dias ]] && {
-	echo -e "\n${cor1}Numero de dias vazio!${scor}\n"
+	echo -e "\n${cor1}Numero de dias vacio!${scor}\n"
 	exit 1
 }
 [[ ${dias} != ?(+|-)+([0-9]) ]] && {
-	echo -e "\n${cor1}Você digite un número de dias inválido!${scor}\n"
+	echo -e "\n${cor1}Numero de dias ingresados son invalidos!${scor}\n"
 	exit 1
 }
-[[ $dias -lt 1 ]] && {
-	echo -e "\n${cor1}O número deve ser mayor que zero!${scor}\n"
+[[ $dias -lt 0 ]] && {
+	echo -e "\n${cor0}O número debe ser mayor que zero!${scor}\n"
 	exit 1
 }
 echo -ne "\033[1;32mLimite de conexiones:\033[1;37m ";read sshlimiter
@@ -308,7 +308,7 @@ echo -ne "\033[1;32mLimite de conexiones:\033[1;37m ";read sshlimiter
 	exit 1
 }
 [[ ${sshlimiter} != ?(+|-)+([0-9]) ]] && {
-	echo -e "\n${cor1}Ha escrito un número de conexões inválido!${scor}\n"
+	echo -e "\n${cor1}Ha escrito un número de conexiones inválido!${scor}\n"
 	exit 1
 }
 [[ $sshlimiter -lt 1 ]] && {
@@ -343,9 +343,9 @@ echo "$username $sshlimiter" >>/root/usuarios.db
 		echo -e "\E[44;1;37m       CUENTA SSH CREADA !      \E[0m"
 		echo -e "\n\033[1;32mIP: \033[1;37m$IP"
 		echo -e "\033[1;32mUsuário: \033[1;37m$username"
-		echo -e "\033[1;32mSenha: \033[1;37m$password"
+		echo -e "\033[1;32mPassw: \033[1;37m$password"
 		echo -e "\033[1;32mExpira em: \033[1;37m$gui"
-		echo -e "\033[1;32mLimite de conexões: \033[1;37m$sshlimiter"
+		echo -e "\033[1;32mLimite de conexiones: \033[1;37m$sshlimiter"
 		sleep 1
 		function aguarde() {
 			helice() {
@@ -375,7 +375,7 @@ echo "$username $sshlimiter" >>/root/usuarios.db
 				echo -e "\033[1;32mLINK\033[1;37m: \033[1;36m$IP:81/openvpn/$username.zip"
 			}
 		} || {
-			echo -e "\033[1;32mDisponivel em\033[1;31m" ~/"$username.zip\033[0m"
+			echo -e "\033[1;32mDisponible em\033[1;31m" ~/"$username.zip\033[0m"
 			sleep 1
 		}
 	} || {
@@ -383,9 +383,9 @@ echo "$username $sshlimiter" >>/root/usuarios.db
 		echo -e "\E[44;1;37m       CUENTA SSH CREADA !      \E[0m"
 		echo -e "\n\033[1;32mIP: \033[1;37m$IP"
 		echo -e "\033[1;32mUsuário: \033[1;37m$username"
-		echo -e "\033[1;32mSenha: \033[1;37m$password"
+		echo -e "\033[1;32mPassw: \033[1;37m$password"
 		echo -e "\033[1;32mExpira em: \033[1;37m$gui"
-		echo -e "\033[1;32mLimite de conexões: \033[1;37m$sshlimiter"
+		echo -e "\033[1;32mLimite de conexiones: \033[1;37m$sshlimiter"
 	}
 } || {
 	clear
@@ -394,5 +394,5 @@ echo "$username $sshlimiter" >>/root/usuarios.db
 	echo -e "\033[1;32mUsuário: \033[1;37m$username"
 	echo -e "\033[1;32mPassw: \033[1;37m$password"
 	echo -e "\033[1;32mExpira em: \033[1;37m$gui"
-	echo -e "\033[1;32mLimite de conexões: \033[1;37m$sshlimiter"
+	echo -e "\033[1;32mLimite de conexiones: \033[1;37m$sshlimiter"
 }
