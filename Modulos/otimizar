@@ -35,19 +35,19 @@ fun_bar() {
 clear
 echo -e "\E[44;1;37m                Otimizar Servidor                \E[0m"
 echo ""
-echo -e "\033[1;32m               Atualizando pacotes\033[0m"
+echo -e "\033[1;32m               Actualizando Modulos\033[0m"
 echo ""
 fun_bar 'apt-get update -y' 'apt-get upgrade -y'
 echo ""
-echo -e "\033[1;32m      Corrigindo problemas de dependências"
+echo -e "\033[1;32m      Corrigiendo problemas de dependencias"
 echo""
 fun_bar 'apt-get -f install'
 echo""
-echo -e "\033[1;32m            Removendo pacotes inúteis"
+echo -e "\033[1;32m            Removiendo paquetes obsoletos"
 echo ""
 fun_bar 'apt-get autoremove -y' 'apt-get autoclean -y'
 echo ""
-echo -e "\033[1;32m        Removendo pacotes com problemas"
+echo -e "\033[1;32m        Removendo paquetes con problemas"
 echo ""
 fun_bar 'apt-get -f remove -y' 'apt-get clean -y'
 #Limpar o cache memoria RAM
@@ -63,10 +63,10 @@ swap2=$(free -h | grep -i swap | awk {'print $4'})
 swap3=$(free -h | grep -i swap | awk {'print $3'})
 echo -e "\033[1;31m•\033[1;32mMemoria RAM\033[1;31m•\033[0m                    \033[1;31m•\033[1;32mSwap\033[1;31m•\033[0m"
 echo -e " \033[1;33mTotal: \033[1;37m$ram1                   \033[1;33mTotal: \033[1;37m$swap1"
-echo -e " \033[1;33mEm Uso: \033[1;37m$ram3                  \033[1;33mEm Uso: \033[1;37m$swap3"
-echo -e " \033[1;33mLivre: \033[1;37m$ram2                   \033[1;33mLivre: \033[1;37m$swap2\033[0m"
+echo -e " \033[1;33mEN Uso: \033[1;37m$ram3                  \033[1;33mEn Uso: \033[1;37m$swap3"
+echo -e " \033[1;33mLibre: \033[1;37m$ram2                   \033[1;33mLibre: \033[1;37m$swap2\033[0m"
 echo ""
-echo -e "\033[1;37mMemória \033[1;32mRAM \033[1;37mAntes da Otimizacao:\033[1;36m" $MEM1%
+echo -e "\033[1;37mMemória \033[1;32mRAM \033[1;37mAntes de la Optimizacion:\033[1;36m" $MEM1%
 echo ""
 echo -e "\033[1;31m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
@@ -111,10 +111,10 @@ swap2=$(free -h | grep -i swap | awk {'print $4'})
 swap3=$(free -h | grep -i swap | awk {'print $3'})
 echo -e "\033[1;31m•\033[1;32mMemoria RAM\033[1;31m•\033[0m                    \033[1;31m•\033[1;32mSwap\033[1;31m•\033[0m"
 echo -e " \033[1;33mTotal: \033[1;37m$ram1                   \033[1;33mTotal: \033[1;37m$swap1"
-echo -e " \033[1;33mEm Uso: \033[1;37m$ram3                  \033[1;33mEm Uso: \033[1;37m$swap3"
-echo -e " \033[1;33mLivre: \033[1;37m$ram2                   \033[1;33mLivre: \033[1;37m$swap2\033[0m"
+echo -e " \033[1;33mEn Uso: \033[1;37m$ram3                  \033[1;33mEn Uso: \033[1;37m$swap3"
+echo -e " \033[1;33mLibre: \033[1;37m$ram2                   \033[1;33mLibre: \033[1;37m$swap2\033[0m"
 echo ""
-echo -e "\033[1;37mMemória \033[1;32mRAM \033[1;37mapós a Otimizacao:\033[1;36m" $MEM2%
+echo -e "\033[1;37mMemória \033[1;32mRAM \033[1;37mapas para Optimizacion:\033[1;36m" $MEM2%
 echo ""
 echo -e "\033[1;37mEconomia de :\033[1;31m $(expr $MEM1 - $MEM2)%\033[0m"
 echo ""
