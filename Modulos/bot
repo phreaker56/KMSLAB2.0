@@ -15,11 +15,11 @@ ajuda ()
     if [[ "${message_from_id[$id]}" = "$id_admin" ]]; then
         local env_msg
         env_msg="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
-        env_msg+="<b>BIEN VINDO(a) AL BOT KMSLAB2.0ADM</b>\n"
+        env_msg+="<b>BIENVENIDO (a) AL BOT KMSLAB2.0ADM</b>\n"
         env_msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
-        env_msg+="⚠️ <i>Comandos Disponiveis</i>\n\n"
-        env_msg+="[<b>01</b>] /crearusuario = Crea usuario\n"
-        env_msg+="[<b>02</b>] /creartest = Crea test ssh\n"
+        env_msg+="⚠️ <i>Comandos Disponibles</i>\n\n"
+        env_msg+="[<b>01</b>] /criarusuario = Cria usuario\n"
+        env_msg+="[<b>02</b>] /criartest = Cria test ssh\n"
         env_msg+="[<b>03</b>] /remover = Remove usuario\n"
         env_msg+="[<b>04</b>] /infousers = Info usuarios\n"
         env_msg+="[<b>05</b>] /monitor = Usuários onlines\n"
@@ -46,8 +46,8 @@ ajuda ()
         env_msg1+="<b>BIENVENIDO(a) AL BOT KMSLAB2.0ADM</b>\n"
         env_msg1+="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
         env_msg1+="⚠️ <i>Comandos Disponiveis</i>\n\n"
-        env_msg1+="[<b>01</b>] /crearusuario = Crea usuario\n"
-        env_msg1+="[<b>02</b>] /creartest = Crea test ssh\n"
+        env_msg1+="[<b>01</b>] /criarusuario = Cria usuario\n"
+        env_msg1+="[<b>02</b>] /criartest = Cria test ssh\n"
         env_msg1+="[<b>03</b>] /remover = Remove usuario\n"
         env_msg1+="[<b>04</b>] /infousers = Info usuarios\n"
         env_msg1+="[<b>05</b>] /monitor = Usuários onlines\n"
@@ -231,7 +231,7 @@ ver_users ()
         info_users='=×=×=×=×=×=×=×=×=×=×=×=×=×=\n'
         info_users+='<b>INFORMACION DE USUARIOS</b>\n'
         info_users+='=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n'
-        info_users+='⚠️ Exibe no formato abaixo:\n\n'
+        info_users+='⚠️ Se muestra en formato abajo:\n\n'
         info_users+='<code>USUÁRIO PASSW LIMITE DATA</code>\n'
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
             --text "$(echo -e $info_users)" \
@@ -571,7 +571,7 @@ speed_test ()
     lnk=$(cat speed | sed -n '10 p' |awk {'print $NF'})
     local msg
         msg="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
-        msg+="<b>🚀 VELOCIDADE DEL SERVIDOR 🚀</b>\n"
+        msg+="<b>🚀 VELOCIDAD DEL SERVIDOR 🚀</b>\n"
         msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
         msg+="<b>PING/LATENCIA:</b>$png\n"
         msg+="<b>DOWNLOAD:</b>$down\n"
