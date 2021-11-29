@@ -18,23 +18,23 @@ ajuda ()
         env_msg+="<b>BIENVENIDO (a) AL BOT KMSLAB2.0ADM</b>\n"
         env_msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
         env_msg+="⚠️ <i>Comandos Disponibles</i>\n\n"
-        env_msg+="[<b>01</b>] /crearusuario = Crea usuario\n"
-        env_msg+="[<b>02</b>] /creartest = Cria test ssh\n"
+        env_msg+="[<b>01</b>] /criarusuario = Cria usuario\n"
+        env_msg+="[<b>02</b>] /criarteste = Cria teste ssh\n"
         env_msg+="[<b>03</b>] /remover = Remove usuario\n"
         env_msg+="[<b>04</b>] /infousers = Info usuarios\n"
         env_msg+="[<b>05</b>] /monitor = Usuários onlines\n"
         env_msg+="[<b>06</b>] /infovps = Info servidor \n"
         env_msg+="[<b>07</b>] /alterarpassw = Change passw\n"
         env_msg+="[<b>08</b>] /alterarlimite = Muda o limite\n"
-        env_msg+="[<b>09</b>] /Changedate = Change data\n"
+        env_msg+="[<b>09</b>] /alterardata = Muda data\n"
         env_msg+="[<b>10</b>] /expirados = Deleta expirados\n"
         env_msg+="[<b>11</b>] /backup = Backup de usuarios\n"
         env_msg+="[<b>12</b>] /optimizar = Limpa o cache\n"
         env_msg+="[<b>13</b>] /speedtest = Teste de conexao\n"
-        env_msg+="[<b>14</b>] /archivos = Hospedar Archivos\n"
+        env_msg+="[<b>14</b>] /arquivos = Hospedar Arquivos\n"
         env_msg+="[<b>15</b>] /revendedor = Generar Revendedor\n"
         env_msg+="[<b>16</b>] /autobackup = Backup automatico\n"
-        env_msg+="[<b>17</b>] /reporte = Informacion\n"
+        env_msg+="[<b>17</b>] /relatorio = Informacoes\n"
         env_msg+="[<b>18</b>] /ayuda = Informacion del bot\n"
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
             --text "$(echo -e $env_msg)" \
@@ -103,27 +103,27 @@ fun_ajuda() {
     if [[ "${message_from_id[$id]}" = "$id_admin" ]]; then
         local env_msg
         env_msg+="⚠️ <b>COMANDOS Y SUS FUNCIONES</b>\n\n"
-        env_msg+="<b>1</b> /crearusuario - <code>crea usuario ssh</code>\n\n"
+        env_msg+="<b>1</b> /criarusuario - <code>cria usuario ssh</code>\n\n"
         env_msg+="<b>2</b> /remover - <code>Remove usuario ssh</code>\n\n"
-        env_msg+="<b>3</b> /infousers - <code>Exibe informacion de los usuarios</code>\n\n"
+        env_msg+="<b>3</b> /infousers - <code>Exibe informacoes do usuarios</code>\n\n"
         env_msg+="<b>4</b> /monitor - <code>Exibe usuarios online</code>\n\n"
         env_msg+="<b>5</b> /infovps - <code>Exibe informacoes do vps</code>\n\n"
-        env_msg+="<b>6</b> /alterarpassw - <code>Altera passw de los usuario</code>\n\n"
+        env_msg+="<b>6</b> /alterarsenha - <code>Altera a senha do usuario</code>\n\n"
         env_msg+="<b>7</b> /alterarlimite - <code>Altera o limite do usuario</code>\n\n"
-        env_msg+="<b>8</b> /changedata - <code>Altera a data do usuario</code>\n\n"
-        env_msg+="<b>9</b> /backup - <code>Crea backup de usuarios</code>\n\n"
-        env_msg+="<b>10</b> /optimizar - <code>Limpa cache y optimiza su server</code>\n\n"
-        env_msg+="<b>11</b> /speedtest - <code>Executa test de velocidade del vps</code>\n\n"
-        env_msg+="<b>12</b> /archivos - <code>Hospeda aquivos (Ex: ehi, kpn e etc)</code>\n\n"
-        env_msg+="<b>13</b> /reventa - <code>Exibe menu de gestao revendas</code>\n\n"
-        env_msg+="<b>14</b> /add_revendor - <code>Adiciona revendedor</code>\n\n"
+        env_msg+="<b>8</b> /alterardata - <code>Altera a data do usuario</code>\n\n"
+        env_msg+="<b>9</b> /backup - <code>Cria backup de usuarios</code>\n\n"
+        env_msg+="<b>10</b> /otimizar - <code>Limpa cache e otimiza a vps</code>\n\n"
+        env_msg+="<b>11</b> /speedtest - <code>Execulta teste de velocidade do vps</code>\n\n"
+        env_msg+="<b>12</b> /arquivos - <code>Hospeda aquivos (Ex: ehi, kpn e etc)</code>\n\n"
+        env_msg+="<b>13</b> /revenda - <code>Exibe menu de gestao revendas</code>\n\n"
+        env_msg+="<b>14</b> /add_revenda - <code>Adiciona revendedor</code>\n\n"
         env_msg+="<b>15</b> /del_revenda - <code>Remove revendedor</code>\n\n"
-        env_msg+="<b>16</b> /limite_revendedor - <code>Altera limite do revendedor</code>\n\n"
-        env_msg+="<b>17</b> /data_revendedor - <code>Altera data do revendedor e reativa quando suspenso</code>\n\n"
-        env_msg+="<b>18</b> /listar_revendedor - <code>Exibe revendedores ativos e suspensos</code>\n\n"
+        env_msg+="<b>16</b> /limite_revenda - <code>Altera limite do revendedor</code>\n\n"
+        env_msg+="<b>17</b> /data_revenda - <code>Altera data do revendedor e reativa quando suspenso</code>\n\n"
+        env_msg+="<b>18</b> /listar_revenda - <code>Exibe revendedores ativos e suspensos</code>\n\n"
         env_msg+="<b>19</b> /suspender - <code>Suspende revendedor e as contas criadas por ele</code>\n\n"
-        env_msg+="<b>20</b> /reportes - <code>Exibe relatorio dos revendedores</code>\n\n"
-        env_msg+="<b>21</b> /crearteste - <code>Cria usuario ssh aleatorio temporario</code>\n\n"
+        env_msg+="<b>20</b> /relatorio - <code>Exibe relatorio dos revendedores</code>\n\n"
+        env_msg+="<b>21</b> /criarteste - <code>Cria usuario ssh aleatorio temporario</code>\n\n"
         env_msg+="<b>22</b> /expirados - <code>Remove os usuarios expirados</code>\n\n"
         env_msg+="<b>23</b> /autobackup - <code>Ativa o backup automatico</code>\n\n"
         env_msg+="<b>24</b> /sobre - <code>creditos / informacoes</code>\n\n"
@@ -487,7 +487,7 @@ local info
         return 0
 }
 
-otimizer ()
+optimizer ()
 {
     [[ "${message_from_id[$id]}" != "$id_admin" ]] && {
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
@@ -510,11 +510,11 @@ otimizer ()
         sucess="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
         sucess+="<b>OPTIMIZADO CON SUCESSO !</b>\n"
         sucess+="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
-        sucess+="<i>Ultilizacao anterior</i> $MEM1%\n\n"
+        sucess+="<i>Ultilizado anterior</i> $MEM1%\n\n"
         sucess+="<b>Total</b> $ram1\n"
-        sucess+="<b>livre</b> $ram3\n"
-        sucess+="<b>Em uso</b> $ram2\n"
-        sucess+="<i>Ultilizacao atual</i> $MEM2%\n\n"
+        sucess+="<b>libre</b> $ram3\n"
+        sucess+="<b>En uso</b> $ram2\n"
+        sucess+="<i>Ultilizacion atual</i> $MEM2%\n\n"
         sucess+="<b>Economia de:</b> $res%"
     ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
     --text "$(echo -e $sucess)" \
@@ -730,7 +730,7 @@ fun_del_user () {
     }
 }
 
-criar_user ()
+crear_user ()
 {
     IP=$(cat /etc/IP)
     newclient () {
@@ -782,7 +782,7 @@ criar_user ()
     }
 }
 
-alterar_senha() {
+alterar_passw() {
     verifica_suspenso ${message_from_username}
     if [[ "${message_from_id[$id]}" = "$id_admin" ]]; then
         ShellBot.sendMessage    --chat_id ${message_from_id[$id]} \
