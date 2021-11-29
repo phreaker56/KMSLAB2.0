@@ -7,11 +7,11 @@ touch lista
     clear && echo "INFORME O TOKEN" && return 0
 }
 # Informações Server 2
-ip_server2="SEU-IP-AQUI"
-senha_server2="SUA-SENHA-AQUI"
+ip_server2="SU-IP-AQUI"
+senha_server2="SU-PASSW-AQUI"
 # Informações Server 3
-ip_server3="SEU-IP-AQUI"
-senha_server3="SUA-SENHA-AQUI"
+ip_server3="SU-IP-AQUI"
+senha_server3="SU-PASSWD-AQUI"
 [[ ! -e RESET ]] && touch RESET
 api_bot=$1
 ShellBot.init --token "$api_bot" --monitor --flush
@@ -21,9 +21,9 @@ ShellBot.username
 menu() {
     local msg
         msg="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
-        msg+="<b>🤖 OLA SEJA BEM VINDO(a) 🤖</b>\n"
+        msg+="<b>🤖  SOY EL PUTO BOT  (a) 🤖</b>\n"
         msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
-        msg+="Gere seu teste agora mesmo!"
+        msg+="Gere su test ahora mismo!"
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
         --text "$(echo -e $msg)" \
         --reply_markup "$keyboard1" \
