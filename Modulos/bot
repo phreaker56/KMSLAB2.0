@@ -34,8 +34,8 @@ ajuda ()
         env_msg+="[<b>14</b>] /arquivos = Hospedar Arquivos\n"
         env_msg+="[<b>15</b>] /revenda = Gerenciar Revendas\n"
         env_msg+="[<b>16</b>] /autobackup = Backup automatico\n"
-        env_msg+="[<b>17</b>] /informacion = Informacoes\n"
-        env_msg+="[<b>18</b>] /ayuda = Informacoes do bot\n"
+        env_msg+="[<b>17</b>] /relatorio = Informacion\n"
+        env_msg+="[<b>18</b>] /ajuda = Informacion del bot\n"
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
             --text "$(echo -e $env_msg)" \
             --parse_mode html
@@ -55,8 +55,8 @@ ajuda ()
         env_msg1+="[<b>07</b>] /alterarsenha = Muda senha\n"
         env_msg1+="[<b>08</b>] /alterarlimite = Muda o limite\n"
         env_msg1+="[<b>09</b>] /alterardata = Muda data\n"
-        env_msg1+="[<b>10</b>] /relatorio = informacoes\n"
-        env_msg1+="[<b>11</b>] /ajuda = Informacoes do bot\n"
+        env_msg1+="[<b>10</b>] /relatorio = informacion\n"
+        env_msg1+="[<b>11</b>] /ajuda = Informacion del bot\n"
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
             --text "$(echo -e $env_msg1)" \
             --parse_mode html
