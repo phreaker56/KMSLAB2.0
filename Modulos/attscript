@@ -76,7 +76,7 @@ echo -e "   KMSLAB2.0" | figlet
 
 echo " "
 
-echo -e "   \033[1;32mVERIFICANDO ATUALIZACIONES DISPONIBLES\033[0m\n"
+echo -e "   \033[1;32mVERIFICANDO ACTUALIZACIONES DISPONIBLES\033[0m\n"
 
 fun_bar 'fun_atts'
 
@@ -102,7 +102,7 @@ vrs2=$(sed -n '1 p' /tmp/att | sed -e 's/[^0-9]//ig')
 
   rm /tmp/att > /dev/null 2>&1
 
-  echo -e " \033[1;33m MAIS INFORMACOES \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37mOWNER:@×͜×ᶤƤђreสker56ヅ🇳🇮⇲\n"
+  echo -e " \033[1;33m MAS INFORMACION \033[1;31m(\033[1;36mTELEGRAM\033[1;31m): \033[1;37mOWNER:@×͜×ᶤƤђreสker56ヅ🇳🇮⇲\n"
 
   echo -ne " \033[1;31m ENTER \033[1;33mpara retornar ao \033[1;32mMENU!\033[0m"; read
 
