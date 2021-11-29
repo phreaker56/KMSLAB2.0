@@ -191,7 +191,7 @@ ver_users ()
         arq_info=/tmp/$(echo $RANDOM)
         local info_users
         info_users='=×=×=×=×=×=×=×=×=×=×=×=×=×=\n'
-        info_users+='<b>INFORMACOES DOS USUARIOS</b>\n'
+        info_users+='<b>INFORMACION DE USUARIOS</b>\n'
         info_users+='=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n'
         info_users+='⚠️ Exibe no formato abaixo:\n\n'
         info_users+='<code>USUÁRIO SENHA LIMITE DATA</code>\n'
@@ -229,7 +229,7 @@ ver_users ()
         cliente="${message_from_username}"
         local info_users
         info_users='=×=×=×=×=×=×=×=×=×=×=×=×=×=\n'
-        info_users+='<b>INFORMACOES DOS USUARIOS</b>\n'
+        info_users+='<b>INFORMACION DE USUARIOS</b>\n'
         info_users+='=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n'
         info_users+='⚠️ Exibe no formato abaixo:\n\n'
         info_users+='<code>USUÁRIO SENHA LIMITE DATA</code>\n'
@@ -309,7 +309,7 @@ monitor_ssh2() {
           info_on='=×=×=×=×=×=×=×=×=×=×=×=×=×=\n'
           info_on+='<b>MONITOR USUARIOS ONLINES</b>\n'
           info_on+='=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n'
-          info_on+='⚠️ Exibe no formato abaixo:\n\n'
+          info_on+='⚠️ Verificar en formato abajo:\n\n'
           info_on+='<code>USUÁRIO  ONLINE/LIMITE  TEMPO\n</code>'
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
         --text "$(echo -e $info_on)" \
@@ -602,7 +602,7 @@ payloads ()
 sobremim() {
     local msg
         msg="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
-        msg+="<b>🤖 BOT SSHPLUS MANAGER 🤖</b>\n"
+        msg+="<b>🤖 BOT KMSLAB2.0 ADM   🤖</b>\n"
         msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
         msg+="<b>Desenvolvido por:</b> @script90\n"
         msg+="Fui criado com o propósito de fornecer informações e ferramentas para gestao de vps 🐧 GNU/Linux 🐧 com foco em uso VPN\n\n"
