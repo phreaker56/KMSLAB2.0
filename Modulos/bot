@@ -26,7 +26,7 @@ ajuda ()
         env_msg+="[<b>06</b>] /infovps = Info servidor \n"
         env_msg+="[<b>07</b>] /alterarpassw = Change passw\n"
         env_msg+="[<b>08</b>] /alterarlimite = Muda o limite\n"
-        env_msg+="[<b>09</b>] /Change Date = Change data\n"
+        env_msg+="[<b>09</b>] /Change date = Change data\n"
         env_msg+="[<b>10</b>] /expirados = Deleta expirados\n"
         env_msg+="[<b>11</b>] /backup = Backup de usuarios\n"
         env_msg+="[<b>12</b>] /otimizar = Limpa o cache\n"
