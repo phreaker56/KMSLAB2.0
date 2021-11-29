@@ -82,9 +82,9 @@ fun_revenda() {
     }
     local env_msg1
     env_msg1="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
-    env_msg1+="<b>MENU REVENDA BOT SSHPLUS</b>\n"
+    env_msg1+="<b>MENU REVEND BOT KMSLAB2.0ADM</b>\n"
     env_msg1+="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
-    env_msg1+="⚠️ <i>Comandos Disponiveis</i>\n\n"
+    env_msg1+="⚠️ <i>Comandos Disponibles</i>\n\n"
     env_msg1+="[<b>01</b>] /add_revenda = Cria\n"
     env_msg1+="[<b>02</b>] /del_revenda = Remove\n"
     env_msg1+="[<b>03</b>] /limite_revenda = Altera\n"
@@ -102,7 +102,7 @@ fun_revenda() {
 fun_ajuda() {
     if [[ "${message_from_id[$id]}" = "$id_admin" ]]; then
         local env_msg
-        env_msg+="⚠️ <b>COMANDOS E SUAS FUNCOES</b>\n\n"
+        env_msg+="⚠️ <b>COMANDOS Y SUS FUNCIONES</b>\n\n"
         env_msg+="<b>1</b> /criarusuario - <code>cria usuario ssh</code>\n\n"
         env_msg+="<b>2</b> /remover - <code>Remove usuario ssh</code>\n\n"
         env_msg+="<b>3</b> /infousers - <code>Exibe informacoes do usuarios</code>\n\n"
@@ -167,7 +167,7 @@ msg_bem_vindo()
 {
     local msg
     msg="✌️×͜×ᶤƤђreสker56ヅ🇳🇮😃 Hola <b>${message_from_first_name[$id]}</b>\nSea bienvenido(a)\n\n"
-    msg+="Para obtener informacion\click o escriba [ /menu ]\n\n"
+    msg+="Para mas informacion\click o escriba [ /menu ]\n\n"
     ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
         --text "$(echo -e $msg)" \
         --parse_mode html
