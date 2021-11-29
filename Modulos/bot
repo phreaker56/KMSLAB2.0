@@ -1349,13 +1349,13 @@ fun_add_teste () {
     verifica_suspenso ${message_from_username}
     if [[ "${message_from_id[$id]}" = "$id_admin" ]]; then
         ShellBot.sendMessage    --chat_id ${message_from_id[$id]} \
-        --text "👤 CREAR TEST 👤\n\nCuantas horas debe durar EX: 1:" \
+        --text "👤 CREAR TEST 👤\n\nCuantos minutos debe durar EX: 20:" \
         --reply_markup "$(ShellBot.ForceReply)"
     elif [[ -d /etc/bot/revenda/${message_from_username} ]]; then
         fun_verif_limit ${message_from_username}
-        [[ "$verify" == '1' ]] && return 0
+        [[ "$verify" == '20' ]] && return 0
         ShellBot.sendMessage    --chat_id ${message_from_id[$id]} \
-        --text "👤 CREAR TEST  👤\n\nCuantas horas debe durar EX: 1:" \
+        --text "👤 CREAR TEST  👤\n\nCuantos minutos debe durar EX: 20:" \
         --reply_markup "$(ShellBot.ForceReply)"
     else
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
@@ -1376,7 +1376,7 @@ fun_verif_user() {
     [[ "${message_from_id[$id]}" = "$id_admin" ]] && {
         [[ ! -e /etc/bot/info-users/$user ]] && {
             ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-            --text "$(echo -e ❌ Usuario $user nao existe !)" \
+            --text "$(echo -e ❌ Usuario $user no existe !)" \
             --parse_mode html
             _existe='1'
             return 0
@@ -1385,7 +1385,7 @@ fun_verif_user() {
     [[ -d /etc/bot/revenda/${message_from_username} ]] && {
         [[ ! -e /etc/bot/revenda/${message_from_username}/usuarios/$user ]] && {
             ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-            --text "$(echo -e ❌ Usuario $user nao existe !)" \
+            --text "$(echo -e ❌ Usuario $user no existe !)" \
             --parse_mode html
             _existe='1'
             return 0
@@ -1395,9 +1395,9 @@ fun_verif_user() {
 
 fun_teste (){
     usuario=$(echo teste$(( RANDOM% + 250 )))
-    senha='1234'
+    passwd='123'
     limite='1'
-    t_time=$1
+    t_time=$20
     ex_date=$(date '+%d/%m/%C%y' -d " +0 days")
     if [[ -z $t_time ]]; then
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
