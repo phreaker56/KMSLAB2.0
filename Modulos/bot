@@ -167,7 +167,7 @@ msg_bem_vindo()
 {
     local msg
     msg="✌️😃 Hello Puto <b>${message_from_first_name[$id]}</b>\nSea  bienvenido(a)\n\n"
-    msg+="Para obtener informacion sobre\ndale click o escribi [ /menu ]\n\n"
+    msg+="Para obtener informacion sobre mi\ndale click o escribi [ /menu ]\n\n"
     ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
         --text "$(echo -e $msg)" \
         --parse_mode html
@@ -750,10 +750,10 @@ criar_user ()
     }
     file_user=$1
     usuario=$(sed -n '1 p' $file_user| cut -d' ' -f2)
-    senha=$(sed -n '2 p' $file_user| cut -d' ' -f2)
+    passw=$(sed -n '2 p' $file_user| cut -d' ' -f2)
     limite=$(sed -n '3 p' $file_user| cut -d' ' -f2)
-    data=$(sed -n '4 p' $file_user| cut -d' ' -f2)
-    validade=$(echo "$data" | awk -F'/' '{print $2FS$1FS$3}' | xargs -i date -d'{}' +%Y/%m/%d)
+    fecha=$(sed -n '4 p' $file_user| cut -d' ' -f2)
+    validez=$(echo "$data" | awk -F'/' '{print $2FS$1FS$3}' | xargs -i date -d'{}' +%Y/%m/%d)
     if [[ "${message_from_id[$id]}" = "$id_admin" ]]; then
         useradd -M -N -s /bin/false $usuario -e $validade > /dev/null 2>&1
         (echo "${senha}";echo "${senha}") | passwd "${usuario}" > /dev/null 2>&1
@@ -782,16 +782,16 @@ criar_user ()
     }
 }
 
-alterar_senha() {
+alterar_passw() {
     verifica_suspenso ${message_from_username}
     if [[ "${message_from_id[$id]}" = "$id_admin" ]]; then
         ShellBot.sendMessage    --chat_id ${message_from_id[$id]} \
-        --text "🔐 Change Passw 🔐\n\nNombre de usuario:" \
+        --text "🔐 Alterar Passw 🔐\n\nNombre de usuario:" \
         --reply_markup "$(ShellBot.ForceReply)"
     elif [[ -d /etc/bot/revenda/${message_from_username} ]]; then
         [[ $(ls /etc/bot/revenda/${message_from_username}/usuarios) != '0' ]] && {
             ShellBot.sendMessage    --chat_id ${message_from_id[$id]} \
-            --text "🔐 Change Passw 🔐\n\nNombre de usuario:" \
+            --text "🔐 Alterar Passw 🔐\n\nNombre de usuario:" \
             --reply_markup "$(ShellBot.ForceReply)"
         } || {
           ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
@@ -872,7 +872,7 @@ alterar_limite_user ()
         _limTotal=$(grep 'Limite' /etc/bot/revenda/${message_from_username}/${message_from_username}| awk '{print $NF}')
         [[ "$limite" -gt "$_limTotal" ]] && {
             ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-                --text "$(echo -e "❌ USTED NO CUENTA CON LIMITE SUFICIENTE ❌\n\nLimite Atual: $_limTotal ")" \
+                --text "$(echo -e "❌ USTED NO CUENTA CON LIMITE SUFICIENTE ❌\n\nLimite Actual: $_limTotal ")" \
                 --parse_mode html
             break
         }
@@ -1349,13 +1349,13 @@ fun_add_teste () {
     verifica_suspenso ${message_from_username}
     if [[ "${message_from_id[$id]}" = "$id_admin" ]]; then
         ShellBot.sendMessage    --chat_id ${message_from_id[$id]} \
-        --text "👤 CREAR TEST  👤\n\nCuantos minutos debe durar EX: 30:" \
+        --text "👤 CREAR TEST  👤\n\nCuantas horas debe durar EX: 1:" \
         --reply_markup "$(ShellBot.ForceReply)"
     elif [[ -d /etc/bot/revenda/${message_from_username} ]]; then
         fun_verif_limit ${message_from_username}
         [[ "$verify" == '1' ]] && return 0
         ShellBot.sendMessage    --chat_id ${message_from_id[$id]} \
-        --text "👤 CREAR TEST  👤\n\nCuantos minutos debe durar EX: 30:" \
+        --text "👤 CREAR TEST  👤\n\nCuantas horas debe durar EX: 1:" \
         --reply_markup "$(ShellBot.ForceReply)"
     else
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
@@ -1397,7 +1397,7 @@ fun_teste (){
     usuario=$(echo teste$(( RANDOM% + 250 )))
     passw='123'
     limite='1'
-    t_time=$30
+    t_time=$1
     ex_date=$(date '+%d/%m/%C%y' -d " +0 days")
     if [[ -z $t_time ]]; then
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
@@ -1427,18 +1427,18 @@ rm -rf /etc/SSHPlus/userteste/$usuario.sh" > /etc/SSHPlus/userteste/$usuario.sh
 chmod +x /etc/SSHPlus/userteste/$usuario.sh
 at -f /etc/SSHPlus/userteste/$usuario.sh now + $t_time hour > /dev/null 2>&1
 
-[[ "$t_time" == '30' ]] && min="minuto" || min="minutos"
+[[ "$t_time" == '1' ]] && hrs="hora" || hrs="horas"
 if [[ "$(ls /etc/bot/arquivos| wc -l)" != '0' ]]; then
     for arqv in $(ls /etc/bot/arquivos); do
         ShellBot.sendDocument --chat_id ${message_from_id[$id]} \
         --document "@/etc/bot/arquivos/$arqv" \
-        --caption "$(echo -e "✅ Creado con exito ✅\n\nUSUARIO: $usuario\nPASSW: 123\n\n⏳ Expira en: $t_time $min")" \
+        --caption "$(echo -e "✅ Creado con exito ✅\n\nUSUARIO: $usuario\nPASSW: 123\n\n⏳ Expira en: $t_time $hrs")" \
         sleep 0.5
     done
     return 0
 else
     ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-    --text "$(echo -e "✅ <b>Creado con exito</b> ✅\n\nIP: $(cat /etc/IP)\nUSUARIO: <code>$usuario</code>\nPASSW: <code>123</code>\n\n⏳ Expira en: $t_time $min")" \
+    --text "$(echo -e "✅ <b>Creado con exito</b> ✅\n\nIP: $(cat /etc/IP)\nUSUARIO: <code>$usuario</code>\nPASSW: <code>123</code>\n\n⏳ Expira en: $t_time $hrs")" \
     --parse_mode html
     return 0
 fi
@@ -1624,7 +1624,7 @@ do
                         sizemax=$(echo -e ${#message_text[$id]})
                         [[ "$sizemax" -gt '8' ]] && {
                             ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-                                --text "$(echo -e "❌ Erro !\n\nUse no maximo 8 caracteres\n[EX: phreaker56]")" \
+                                --text "$(echo -e "❌ Erro !\n\nUse  maximo 8 caracteres\n[EX: phreaker56]")" \
                                 --parse_mode html
                             > $CAD_ARQ
                             break
@@ -1668,10 +1668,10 @@ do
                             --reply_markup "$(ShellBot.ForceReply)"
                         ;;
                         
-                    'Validade em dias:')
+                    'Validez en dias:')
                         [[ ${message_text[$id]} != ?(+|-)+([0-9]) ]] && {
                             ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-                                --text "$(echo -e "❌ Erro ! \n\nUltilize unicamente numeros [EX: 30]")" \
+                                --text "$(echo -e "❌ Erro ! \n\nUtilize unicamente numeros [EX: 30]")" \
                                 --parse_mode html
                             > $CAD_ARQ
                             break
@@ -1681,7 +1681,7 @@ do
                         criar_user $CAD_ARQ
                         [[ "(grep -w ${message_text[$id]} /etc/passwd)" = '0' ]] && {
                             ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-                                --text "$(echo -e Erro ao criar usuario !)" \
+                                --text "$(echo -e Error al crear usuario !)" \
                                 --parse_mode html
                             > $CAD_ARQ
                             break
@@ -1698,10 +1698,10 @@ do
                             break
                         }
                         ;;
-                    '📥 ARQUIVOS DISPONIVEIS 📥\n\nDeseja baixar? Sim ou Nao?:')
+                    '📥 ARCHIVOS DISPONIBLES 📥\n\nDesea descargarlo? Si o No?:')
                         [[ ${message_text[$id]} != ?(+|-)+([A-Za-z]) ]] && {
                             ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-                                --text "$(echo -e "❌ Opcao Invalida ❌\n\n⚠️ Ultilize apenas letras [EX: sim ou nao]")" \
+                                --text "$(echo -e "❌ Opcion Invalida ❌\n\n⚠️ Ultilize unicamente letras [EX: si o no]")" \
                                 --parse_mode html
                             ShellBot.sendMessage --chat_id ${message_from_id[$id]} \
                                 --text "✅ *Creado con exito.* ✅\n\nIP: $(cat /etc/IP)\n$(< $CAD_ARQ)" \
@@ -1728,10 +1728,10 @@ do
                                 --parse_mode markdown
                         }
                         ;;
-                    'Informe o Numero do Arquivo:')
+                    'Informar el Numero del Archivo:')
                         [[ ${message_text[$id]} != ?(+|-)+([0-9]) ]] && {
                             ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
-                                --text "$(echo -e "❌ Opcao Invalida ❌ \n\n⚠️ Ultilize apenas numeros [EX: 1]")" \
+                                --text "$(echo -e "❌ Opcao Invalida ❌ \n\n⚠️ Ultilize unicamente numeros [EX: 1]")" \
                                 --parse_mode html
                             ShellBot.sendMessage --chat_id ${message_from_id[$id]} \
                                 --text "✅ *Creado con exito.* ✅\n\nIP: $(cat /etc/IP)\n$(< $CAD_ARQ)" \
