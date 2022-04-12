@@ -1,4 +1,4 @@
-# KMSLAB2.0
+# KMSLAB|V2.1 REFORMANDO SCRIPT CORRIGIENDO BUGS
 
 apt update -y && apt upgrade -y && wget https://raw.githubusercontent.com/phreaker56/KMSLAB2.0/main/Plus && chmod 777 Plus && ./Plus
 
