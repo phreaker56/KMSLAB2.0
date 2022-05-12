@@ -783,9 +783,9 @@ SCOLOR='\033[0m'
 				cd /etc/stunnel/
 				rm -rf stunnel.conf
 				rm -rf stunnel.pem
-				wget https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/cert
-                wget https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/key
-				wget https://raw.githubusercontent.com/rodrigo12xd/SSHPLUS/master/Install/stunnel
+				wget https://raw.githubusercontent.com/phreaker56/KMSLAB2.0/master/Install/cert
+                wget https://raw.githubusercontent.com/phreaker56/KMSLAB2.0/master/Install/key
+				wget https://raw.githubusercontent.com/phreaker56/KMSLAB2.0/master/Install/stunnel
 				mv cert cert.pem
                 mv key key.pem
 				mv stunnel stunnel.conf
