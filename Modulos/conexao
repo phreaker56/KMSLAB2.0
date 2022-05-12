@@ -1287,9 +1287,9 @@ SCOLOR='\033[0m'
 			# Adquirindo easy-rsa
 			echo ""
 			fun_dep() {
-				wget -O ~/EasyRSA-3.0.1.tgz "https://github.com/phreaker56/KMSLAB2.0/raw/master/Install/EasyRSA-3.0.1.tgz"
+				wget -O ~/EasyRSA-3.0.1.tgz "https://github.com/phreaker56/KMSLAB2.0/blob/main/Install/EasyRSA-3.0.1.tgz"
 				[[ ! -e $HOME/EasyRSA-3.0.1.tgz ]] && {
-					wget -O ~/EasyRSA-3.0.1.tgz "http://sshplus.xyz/script/EasyRSA-3.0.1.tgz"
+					wget -O ~/EasyRSA-3.0.1.tgz "https://github.com/phreaker56/KMSLAB2.0/blob/main/Install/EasyRSA-3.0.1.tgz"
 				}
 				tar xzf ~/EasyRSA-3.0.1.tgz -C ~/
 				mv ~/EasyRSA-3.0.1/ /etc/openvpn/
