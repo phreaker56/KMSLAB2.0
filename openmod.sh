@@ -80,4 +80,4 @@ fun_bar "conf_ovpn"
 echo""
 echo -e "\033[1;32mOPEN_VPN CONFIGURED SUCCESSFULLY."
 echo""
-./openmod
+
