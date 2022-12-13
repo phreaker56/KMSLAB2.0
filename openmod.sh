@@ -21,6 +21,7 @@ fun_bar (){
  done
  echo -e "\033[1;33m]\033[1;37m -\033[1;32m OK !\033[1;37m" tput cnorm 
 }
+
 clear export
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 MYIP=$(wget -qO- ipv4.icanhazip.com); MYIP2="s/xxxxxxxxx/$MYIP/g";
@@ -32,7 +33,8 @@ echo""
 echo -e "\033[1;32mINSTALLING OPEN_VPN..."
 echo""
 
-int_open() { apt-get install openvpn -y }
+int_open() { 
+apt-get install openvpn -y 
 fun_bar "int_open"
 echo"" echo -e "\033[1;32mEXTRACTING FILES..."
 echo""
@@ -41,7 +43,7 @@ ex_arqui() {
 	wget -O /etc/openvpn/openvpn.tar "https://github.com/phreaker56/OPENVPN/raw/master/openvpn-debian.tar" 
 	cd /etc/openvpn/ tar xf openvpn.tar
 	wget -O /etc/openvpn/1194.conf "https://raw.githubusercontent.com/phreaker56/OPENVPN/master/1194.conf"
-	service openvpn restart
+	service openvpn restart }
 }
 
 fun_bar "ex_arqui" 
