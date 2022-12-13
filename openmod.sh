@@ -21,8 +21,6 @@ fun_bar (){
  done
  echo -e "\033[1;33m]\033[1;37m -\033[1;32m OK !\033[1;37m" tput cnorm 
 }
-
-
 clear export
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 MYIP=$(wget -qO- ipv4.icanhazip.com); MYIP2="s/xxxxxxxxx/$MYIP/g";
@@ -40,9 +38,9 @@ echo"" echo -e "\033[1;32mEXTRACTING FILES..."
 echo""
 
 ex_arqui() {
-	wget -O /etc/openvpn/openvpn.tar "https://github.com/admvps/OPENVPN/raw/master/openvpn-debian.tar" 
+	wget -O /etc/openvpn/openvpn.tar "https://github.com/phreaker56/OPENVPN/raw/master/openvpn-debian.tar" 
 	cd /etc/openvpn/ tar xf openvpn.tar
-	wget -O /etc/openvpn/1194.conf "https://raw.githubusercontent.com/admvps/OPENVPN/master/1194.conf"
+	wget -O /etc/openvpn/1194.conf "https://raw.githubusercontent.com/phreaker56/OPENVPN/master/1194.conf"
 	service openvpn restart
 }
 
@@ -56,7 +54,7 @@ conf_open() {
 	sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
 	iptables -t nat -I POSTROUTING -s 192.168.100.0/24 -o eth0 -j MASQUERADE
 	iptables-save > /etc/iptables_yg_baru_dibikin.conf
-	wget -O /etc/network/if-up.d/iptables "https://raw.githubusercontent.com/admvps/OPENVPN/master/iptables"
+	wget -O /etc/network/if-up.d/iptables "https://raw.githubusercontent.com/phreaker56/OPENVPN/master/iptables"
 	chmod +x /etc/network/if-up.d/iptables
 	service openvpn@1194 restart
 	service openvpn@1194 start 
@@ -70,7 +68,7 @@ echo""
 
 conf_ovpn() {
 	cd /etc/openvpn/ 
-	wget -O /etc/openvpn/client.ovpn "https://raw.githubusercontent.com/admvps/OPENVPN/master/client-1194.conf"
+	wget -O /etc/openvpn/client.ovpn "https://raw.githubusercontent.com/phreaker56/OPENVPN/master/client-1194.conf"
 	sed -i $MYIP2 /etc/openvpn/client.ovpn;
 	cp client.ovpn /root rm -rf $HOME/openmod && cat
 	/dev/null > ~/.bash_history && history -c 
