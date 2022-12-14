@@ -5,8 +5,7 @@ fun_bar (){
 ( [[ -e $HOME/fim ]] && rm $HOME/fim
 	${comando[0]} > /dev/null 2>&1
 	${comando[1]} > /dev/null 2>&1
-	touch $HOME/fim
-	) > /dev/null 2>&1 &  tput civis
+	touch $HOME/fim ) > /dev/null 2>&1 &  tput civis
  echo -ne "\033[1;33mWAIT \033[1;37m- \033[1;33m["
  while true; do
  	for((i=0; i<18; i++)); do
@@ -16,15 +15,18 @@ fun_bar (){
  	[[ -e $HOME/fim ]] && rm $HOME/fim && break
  	echo -e "\033[1;33m]"    
  	sleep 1s    
- 	tput cuu1 tput dl1
+ 	tput cuu1 
+	tput dl1
  	echo -ne "\033[1;33mWAIT \033[1;37m- \033[1;33m["
  done
- echo -e "\033[1;33m]\033[1;37m -\033[1;32m OK !\033[1;37m" tput cnorm 
+ echo -e "\033[1;33m]\033[1;37m -\033[1;32m OK !\033[1;37m" 
+ tput cnorm 
 }
 
-clear export
+clear 
+export
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
-MYIP=$(wget -qO- ipv4.icanhazip.com); MYIP2="s/xxxxxxxxx/$MYIP/g";
+MYIP="$(wget -qO- ipv4.icanhazip.com); MYIP2="s/xxxxxxxxx/$MYIP/g";
 echo ""
 echo -e "\033[1;32mWELCOME TO THE OPEN_VPN INSTALLER"
 echo""
@@ -34,7 +36,7 @@ echo -e "\033[1;32mINSTALLING OPEN_VPN..."
 echo""
 
 int_open() { 
-apt-get install openvpn -y 
+apt-get install openvpn -y }
 fun_bar "int_open"
 echo"" echo -e "\033[1;32mEXTRACTING FILES..."
 echo""
@@ -72,7 +74,8 @@ conf_ovpn() {
 	cd /etc/openvpn/ 
 	wget -O /etc/openvpn/client.ovpn "https://raw.githubusercontent.com/phreaker56/OPENVPN/master/client-1194.conf"
 	sed -i $MYIP2 /etc/openvpn/client.ovpn;
-	cp client.ovpn /root rm -rf $HOME/openmod && cat
+	cp client.ovpn /root/ 
+	rm -rf $HOME/openmod && cat
 	/dev/null > ~/.bash_history && history -c 
 }
 
@@ -80,4 +83,4 @@ fun_bar "conf_ovpn"
 echo""
 echo -e "\033[1;32mOPEN_VPN CONFIGURED SUCCESSFULLY."
 echo""
-./openmod.sh
+./openmod
